@@ -9,6 +9,7 @@ Novel method of streaming directly from Kinect with Microsoft SDK & C++
 ## Video Demos
 
 [Test - Sending OSC messages in C++](https://youtu.be/40j-6ixSpu8)
+
 [Moving a Virtual Target with your Hand](https://youtu.be/acfYBkaEXKU)
 
 ## Disclaimer
