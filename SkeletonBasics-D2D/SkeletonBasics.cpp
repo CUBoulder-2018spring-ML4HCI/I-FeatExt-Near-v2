@@ -9,20 +9,6 @@
 #include "SkeletonBasics.h"
 #include "resource.h"
 
-//#include "UdpSocket.h"
-//#include "OscOutboundPacketStream.h"
-/*#include <OscException.h>
-#include <OscHostEndianness.h>
-#include <OscOutboundPacketStream.h>
-#include <OscPacketListener.h>
-#include <OscPrintReceivedElements.h>
-#include <OscReceivedElements.h>
-#include <OscTypes.h>
-#include <UdpSocket.h>*/
-
-//#include "osc/OscOutboundPacketStream.h"
-//#include "ip/UdpSocket.h"
-
 #include <osc\OscOutboundPacketStream.h>
 #include <ip\UdpSocket.h>
 
@@ -197,6 +183,7 @@ void sendOSC(const NUI_SKELETON_DATA & skel) {
 	osc::OutboundPacketStream p(buffer, OUTPUT_BUFFER_SIZE);
 
 	bool doTest = false;
+	bool rightHandOnly = true;
 
 	if (doTest) {
 		float val1 = 3.0;
@@ -212,13 +199,24 @@ void sendOSC(const NUI_SKELETON_DATA & skel) {
 			//<< (double)0.23 << osc::EndMessage
 			<< osc::EndBundle;
 	}
-	else {
-		float val1 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].x*100;
-		float val2 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].y*100;
-		float val3 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].z*100;
+	else if (rightHandOnly){
 		float val4 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].x*100;
 		float val5 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].y*100;
-		float val6 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].z*100;
+
+		p << osc::BeginBundleImmediate
+			<< osc::BeginMessage("/wek/inputs")
+			<< val4 << val5 << osc::EndMessage
+			//<< osc::BeginMessage("/wek/inputs")
+			//<< (double)0.23 << osc::EndMessage
+			<< osc::EndBundle;
+	}
+	else {
+		float val1 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].x * 100;
+		float val2 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].y * 100;
+		float val3 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].z * 100;
+		float val4 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].x * 100;
+		float val5 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].y * 100;
+		float val6 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].z * 100;
 
 		p << osc::BeginBundleImmediate
 			<< osc::BeginMessage("/wek/inputs")
