@@ -3,7 +3,7 @@
 Novel method of streaming directly from Kinect with Microsoft SDK & C++
 
 ## Disclaimer
-My code is a small portion of the uploaded repository that integrates Skeleton Basics with Oscpacket. Most of the code is from those packages.
+My code is a small portion of the uploaded repository. The goal here was to integrate Skeleton Basics with Oscpacket. Most of the code is from those packages, and I do not claim credit for it. Links are below.
 
 ## Developer
 Stacia Near
