@@ -4,7 +4,7 @@ Novel method of streaming directly from Kinect with Microsoft SDK & C++
 
 ## Setup Guide
 
-[Tutorial - Using Kinect SDK with Visual Studio](https://youtu.be/mkSjy9mpicI)
+[Using Kinect SDK with Visual Studio](https://youtu.be/mkSjy9mpicI)
 
 ## Video Demos
 
