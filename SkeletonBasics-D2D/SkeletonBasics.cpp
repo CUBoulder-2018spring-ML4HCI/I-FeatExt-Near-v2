@@ -196,18 +196,37 @@ void sendOSC(const NUI_SKELETON_DATA & skel) {
 	char buffer[OUTPUT_BUFFER_SIZE];
 	osc::OutboundPacketStream p(buffer, OUTPUT_BUFFER_SIZE);
 
-	float val1 = 3.0;
-	float val2 = 0.5;
-	float val3 = 2.0;
-	float val4 = 1.5;
-	float val5 = 10.1;
+	bool doTest = false;
 
-	p << osc::BeginBundleImmediate
-		<< osc::BeginMessage("/wek/inputs")
-		<< val1 << val2 << val3 << val4 << val5 << osc::EndMessage
-		//<< osc::BeginMessage("/wek/inputs")
-		//<< (double)0.23 << osc::EndMessage
-		<< osc::EndBundle;
+	if (doTest) {
+		float val1 = 3.0;
+		float val2 = 0.5;
+		float val3 = 2.0;
+		float val4 = 1.5;
+		float val5 = 10.1;
+
+		p << osc::BeginBundleImmediate
+			<< osc::BeginMessage("/wek/inputs")
+			<< val1 << val2 << val3 << val4 << val5 << osc::EndMessage
+			//<< osc::BeginMessage("/wek/inputs")
+			//<< (double)0.23 << osc::EndMessage
+			<< osc::EndBundle;
+	}
+	else {
+		float val1 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].x*100;
+		float val2 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].y*100;
+		float val3 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_LEFT].z*100;
+		float val4 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].x*100;
+		float val5 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].y*100;
+		float val6 = skel.SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].z*100;
+
+		p << osc::BeginBundleImmediate
+			<< osc::BeginMessage("/wek/inputs")
+			<< val1 << val2 << val3 << val4 << val5 << val6 << osc::EndMessage
+			//<< osc::BeginMessage("/wek/inputs")
+			//<< (double)0.23 << osc::EndMessage
+			<< osc::EndBundle;
+	}
 
 	transmitSocket.Send(p.Data(), p.Size());
 }
