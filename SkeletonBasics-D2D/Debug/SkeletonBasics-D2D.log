@@ -1,3 +1,4 @@
 ﻿  SkeletonBasics.cpp
-  SkeletonBasics-D2D.vcxproj -> C:\Users\Stacia\Desktop\FeatureExtractor\SkeletonBasics-D2D\Debug\SkeletonBasics-D2D.exe
-  SkeletonBasics-D2D.vcxproj -> C:\Users\Stacia\Desktop\FeatureExtractor\SkeletonBasics-D2D\Debug\SkeletonBasics-D2D.pdb (Partial PDB)
+c:\workspace\grad_semester_2\featureextractor\skeletonbasics-d2d\skeletonbasics.cpp(203): warning C4305: 'initializing': truncation from 'double' to 'float'
+  SkeletonBasics-D2D.vcxproj -> C:\Workspace\Grad_Semester_2\FeatureExtractor\SkeletonBasics-D2D\Debug\SkeletonBasics-D2D.exe
+  SkeletonBasics-D2D.vcxproj -> C:\Workspace\Grad_Semester_2\FeatureExtractor\SkeletonBasics-D2D\Debug\SkeletonBasics-D2D.pdb (Partial PDB)

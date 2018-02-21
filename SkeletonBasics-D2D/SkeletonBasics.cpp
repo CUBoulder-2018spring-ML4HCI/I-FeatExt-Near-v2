@@ -9,9 +9,37 @@
 #include "SkeletonBasics.h"
 #include "resource.h"
 
+//#include "UdpSocket.h"
+//#include "OscOutboundPacketStream.h"
+/*#include <OscException.h>
+#include <OscHostEndianness.h>
+#include <OscOutboundPacketStream.h>
+#include <OscPacketListener.h>
+#include <OscPrintReceivedElements.h>
+#include <OscReceivedElements.h>
+#include <OscTypes.h>
+#include <UdpSocket.h>*/
+
+//#include "osc/OscOutboundPacketStream.h"
+//#include "ip/UdpSocket.h"
+
+#include <osc\OscOutboundPacketStream.h>
+#include <ip\UdpSocket.h>
+
+//#pragma comment(lib, "ws2_32.lib")
+
+
 static const float g_JointThickness = 3.0f;
 static const float g_TrackedBoneThickness = 6.0f;
 static const float g_InferredBoneThickness = 1.0f;
+
+//OSCPACKET CODE
+#define ADDRESS "127.0.0.1"
+#define PORT 6448
+#define OUTPUT_BUFFER_SIZE 1024
+
+void sendOSC(const NUI_SKELETON_DATA & skel);
+
 
 /// <summary>
 /// Entry point for the application
@@ -152,6 +180,36 @@ void CSkeletonBasics::Update()
     {
         ProcessSkeleton();
     }
+}
+
+//
+//MY CODE
+//AND OSCPACKET CODE (MODIFIED)
+//
+//------------------------------------------------------------------------------------------
+// 
+void sendOSC(const NUI_SKELETON_DATA & skel) {
+	// formatting messages into a packet for sending:
+
+	UdpTransmitSocket transmitSocket(IpEndpointName(ADDRESS, PORT));
+
+	char buffer[OUTPUT_BUFFER_SIZE];
+	osc::OutboundPacketStream p(buffer, OUTPUT_BUFFER_SIZE);
+
+	float val1 = 3.0;
+	float val2 = 0.5;
+	float val3 = 2.0;
+	float val4 = 1.5;
+	float val5 = 10.1;
+
+	p << osc::BeginBundleImmediate
+		<< osc::BeginMessage("/wek/inputs")
+		<< val1 << val2 << val3 << val4 << val5 << osc::EndMessage
+		//<< osc::BeginMessage("/wek/inputs")
+		//<< (double)0.23 << osc::EndMessage
+		<< osc::EndBundle;
+
+	transmitSocket.Send(p.Data(), p.Size());
 }
 
 /// <summary>
@@ -371,6 +429,9 @@ void CSkeletonBasics::ProcessSkeleton()
 /// <param name="windowHeight">height (in pixels) of output buffer</param>
 void CSkeletonBasics::DrawSkeleton(const NUI_SKELETON_DATA & skel, int windowWidth, int windowHeight)
 {      
+	//Also send OSC
+	sendOSC(skel);
+
     int i;
 
     for (i = 0; i < NUI_SKELETON_POSITION_COUNT; ++i)

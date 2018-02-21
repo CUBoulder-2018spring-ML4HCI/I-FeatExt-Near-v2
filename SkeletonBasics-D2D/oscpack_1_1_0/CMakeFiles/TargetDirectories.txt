@@ -1,0 +1,9 @@
+C:/Workspace/Grad_Semester_2/FeatureExtractor/SkeletonBasics-D2D/oscpack_1_1_0/CMakeFiles/SimpleReceive.dir
+C:/Workspace/Grad_Semester_2/FeatureExtractor/SkeletonBasics-D2D/oscpack_1_1_0/CMakeFiles/OscReceiveTest.dir
+C:/Workspace/Grad_Semester_2/FeatureExtractor/SkeletonBasics-D2D/oscpack_1_1_0/CMakeFiles/oscpack.dir
+C:/Workspace/Grad_Semester_2/FeatureExtractor/SkeletonBasics-D2D/oscpack_1_1_0/CMakeFiles/SimpleSend.dir
+C:/Workspace/Grad_Semester_2/FeatureExtractor/SkeletonBasics-D2D/oscpack_1_1_0/CMakeFiles/OscUnitTests.dir
+C:/Workspace/Grad_Semester_2/FeatureExtractor/SkeletonBasics-D2D/oscpack_1_1_0/CMakeFiles/OscSendTests.dir
+C:/Workspace/Grad_Semester_2/FeatureExtractor/SkeletonBasics-D2D/oscpack_1_1_0/CMakeFiles/OscDump.dir
+C:/Workspace/Grad_Semester_2/FeatureExtractor/SkeletonBasics-D2D/oscpack_1_1_0/CMakeFiles/ALL_BUILD.dir
+C:/Workspace/Grad_Semester_2/FeatureExtractor/SkeletonBasics-D2D/oscpack_1_1_0/CMakeFiles/ZERO_CHECK.dir
