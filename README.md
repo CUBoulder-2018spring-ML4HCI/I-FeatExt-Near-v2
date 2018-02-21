@@ -2,6 +2,15 @@
 
 Novel method of streaming directly from Kinect with Microsoft SDK & C++
 
+## Setup Guide
+
+[Tutorial - Using Kinect SDK with Visual Studio](https://youtu.be/mkSjy9mpicI)
+
+## Video Demos
+
+[Test - Sending OSC messages in C++](https://youtu.be/40j-6ixSpu8)
+[Moving a Virtual Target with your Hand](https://youtu.be/acfYBkaEXKU)
+
 ## Disclaimer
 My code is a small portion of the uploaded repository. The goal here was to integrate Skeleton Basics with Oscpacket. Most of the code is from those packages, and I do not claim credit for it. Links are below.
 
